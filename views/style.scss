@@ -1,3 +1,109 @@
 body {
-  color: red;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+#header {
+  padding: 12px 32px;
+  background-color: #504797;
+  h1 {
+    font-size: 18px;
+    color: white;
+  }
+}
+
+#main {
+  margin: 32px;
+  min-height: 520px;
+  flex: 1;
+}
+
+#footer {
+  padding: 12px 32px;
+  background-color: #504797;
+  p, a {
+    color: white;
+  }
+}
+
+
+
+#newCmp {
+  #drop-zone {
+    width: 100%;
+    height: 200px;
+    border: 2px dotted #999;
+    border-radius: 6px;
+    margin-bottom: 32px;
+    .desc {
+      margin: 100px 0;
+      text-align: center;
+    }
+    &.dragover { background-color: #F7F7F7; }
+  }
+  .val-zone {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 32px;
+    .labl {
+      width: 180px;
+    }
+  }
+  #upload {
+    border: 1px solid #504797;
+    color: #504797;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 12px 22px;
+    border-radius: 6px;
+    &:hover { opacity: 0.6; }
+  }
+}
+
+#indexCmp {
+  #newlink {
+    margin-bottom: 32px;
+    display: inline-block;
+    border: 1px solid #504797;
+    color: #504797;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    &:hover { opacity: 0.6; }
+  }
+  .transList {
+    width: 100%;
+    th {
+      text-align: left;
+      padding: 18px 0 12px;
+      border-bottom: solid 1px #000000;
+    }
+    td {
+      padding: 18px 0;
+    }
+  }
+}
+
+#showCmp {
+  .speak {
+    display: flex;
+    &.spk_0 { color: blue; }
+    &.spk_1 { color: black; }
+    &.spk_2 { color: red; }
+    &.spk_3 { color: gray; }
+    .who { width: 80px; }
+    .said {
+      flex: 1;
+      max-width: 500px;
+      margin-bottom: 18px;
+      .word {
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+    }
+  }
 }

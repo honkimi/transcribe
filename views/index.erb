@@ -1,11 +1,30 @@
-<html>
-<head>
-  <title>Test</title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width , minimum-scale=1, maximum-scale=1">
-  <link rel="stylesheet" media="all" href="style.css" />
-</head>
-<body>
-  ヤホオー <%= @now %>
-</body>
-</html>
+<div id="indexCmp">
+
+  <a href="/new" id="newlink">新規作成</a>
+
+  <table class="transList">
+    <thead>
+      <tr>
+        <th>日時</th>
+        <th>ターゲット</th>
+        <th>ステータス</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transcribes.transcription_job_summaries.each do |tr| %>
+        <tr>
+          <td><%= tr.creation_time %></td>
+          <td><%= tr.transcription_job_name %></td>
+          <td><%= tr.transcription_job_status %></td>
+          <td>
+            <% if tr.transcription_job_status == "COMPLETED" %>
+              <a href="/show/<%= tr.transcription_job_name %>">詳細</a>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

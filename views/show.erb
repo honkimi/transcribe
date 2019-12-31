@@ -1,0 +1,25 @@
+<div id="showCmp">
+  <% idx = 0 %>
+  <% @transcript["results"]["speaker_labels"]["segments"].each do |seg| %>
+    <div class="speak <%= seg["speaker_label"] %>">
+      <div class="who" data="<%= seg["start_time"] %>">
+        <%= seg["speaker_label"] %>
+      </div>
+      <div class="said">
+        <% seg["items"].each_with_index do |item| %>
+
+          <% loop do %>
+            <% if @transcript["results"]["items"][idx]["start_time"] %>
+              <span class="word">
+                <%= @transcript["results"]["items"][idx]["alternatives"][0]["content"] %>
+              </span>
+              <% idx += 1 %>
+              <% break %>
+            <% end %>
+            <% idx += 1 %>
+          <% end %>
+        <% end %><span class="last">。</span>
+      </div>
+    </div>
+  <% end %>
+</div>
