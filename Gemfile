@@ -9,6 +9,9 @@ gem 'aws-sdk-s3'
 gem 'aws-sdk-transcribeservice'
 gem 'faraday'
 
+group :production do
+  gem 'puma'
+end
 group :development do
   gem 'dotenv'
 end
