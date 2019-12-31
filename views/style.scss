@@ -89,6 +89,9 @@ body {
 }
 
 #showCmp {
+  #audio {
+    margin-bottom: 42px;
+  }
   .speak {
     display: flex;
     &.spk_0 { color: blue; }

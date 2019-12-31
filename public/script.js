@@ -45,6 +45,9 @@ $(function() {
 
   $(document).on("click", "#newCmp #upload", function(e) {
     if (!file) return false;
+    var $this = $(this);
+    $this.hide();
+
     var filename = 'heroku-' + new Date().getTime();
     $.ajax('/upload?name=' + filename + "&type=" + file.type).done(function(data) {
       console.log(data);
@@ -75,11 +78,15 @@ $(function() {
         }).done(function(res) {
           console.log(res);
           window.location.href = window.location.origin;
+        }).fail(function(err) {
+          $("#drop-zone .desc").text("失敗: " + err.message);
+          $this.show();
         });
 
       }).fail(function(err) {
         console.log(err);
-        $("#drop-zone .desc").text("失敗: " + err);
+        $("#drop-zone .desc").text("失敗: " + err.message);
+        $this.show();
       });
     });
 

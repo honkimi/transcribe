@@ -42,10 +42,10 @@ get '/new' do
 end
 
 get '/show/:id' do
-  res = TRANSCRIBE.get_transcription_job({
+  @res = TRANSCRIBE.get_transcription_job({
     transcription_job_name: params[:id]
   })
-  uri = res.transcription_job.transcript.transcript_file_uri
+  uri = @res.transcription_job.transcript.transcript_file_uri
   @transcript = JSON.parse(Faraday.get(uri).body)
 
   erb :show

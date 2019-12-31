@@ -1,4 +1,5 @@
 <div id="showCmp">
+  <audio id="audio" src="<%= @res.transcription_job.media.media_file_uri %>" controls></audio>
   <% idx = 0 %>
   <% @transcript["results"]["speaker_labels"]["segments"].each do |seg| %>
     <div class="speak <%= seg["speaker_label"] %>">
