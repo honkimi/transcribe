@@ -14,7 +14,7 @@
     <tbody>
       <% @transcribes.transcription_job_summaries.each do |tr| %>
         <tr>
-          <td><%= tr.creation_time %></td>
+          <td><%= tr.creation_time.strftime("%m/%d %H:%M") %></td>
           <td><%= tr.transcription_job_name %></td>
           <td><%= tr.transcription_job_status %></td>
           <td>
