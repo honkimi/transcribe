@@ -1,4 +1,3 @@
-```
 # AWS
 **IAM**
 IAM > ユーザー > ユーザーを追加
@@ -20,6 +19,7 @@ S3 Bucket を作成
 環境変数
 S3_BUCKET
 
+```
 # set .env
 bundle install
 ruby app.rb
