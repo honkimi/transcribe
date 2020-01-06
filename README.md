@@ -1,4 +1,6 @@
-# AWS
+# Setup
+## AWS
+
 **IAM**
 IAM > ユーザー > ユーザーを追加
 ポリシー
@@ -6,9 +8,12 @@ IAM > ユーザー > ユーザーを追加
 - AmazonTranscribeFullAccess
 
 環境変数
+
+```
 AWS_REGION
 AWS_ACCESS_KEY_ID
 AWS_REGION
+```
 
 **S3**
 S3 Bucket を作成
@@ -17,8 +22,11 @@ S3 Bucket を作成
 - CORS を有効
 
 環境変数
+```
 S3_BUCKET
+```
 
+## Heroku
 ```
 # set .env
 bundle install
