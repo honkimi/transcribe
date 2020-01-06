@@ -18,7 +18,7 @@ configure do
   set :scss, Compass.sass_engine_options
 
   Aws.config.update({
-    region: 'ap-northeast-1',
+    region: ENV['AWS_REGION'],
     credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY']),
   })
   S3_BUCKET = Aws::S3::Resource.new.bucket(ENV['S3_BUCKET'])
