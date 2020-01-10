@@ -7,7 +7,7 @@
         <%= seg["speaker_label"] %>
       </div>
       <div class="said">
-        <% seg["items"].each_with_index do |item| %><% loop do %><% if @transcript["results"]["items"][idx]["start_time"] %><span class="word"><%= @transcript["results"]["items"][idx]["alternatives"][0]["content"] %></span><% idx += 1 %><% break %><% end %><% idx += 1 %><% end %><% end %><span class="last">。</span>
+<% seg["items"].each_with_index do |item, i| %><% loop do %><% if @transcript["results"]["items"][idx]["start_time"] %><span class="word"><%= @transcript["results"]["items"][idx]["alternatives"][0]["content"] %></span><%= " " if @res["transcription_job"]["language_code"] == "en-US" && i != seg["items"].length - 1 %><% idx += 1 %><% break %><% end %><% idx += 1 %><% end %><% end %><span class="last"><%= @res["transcription_job"]["language_code"] == "en-US" ? "." : "。" %></span>
       </div>
     </div>
   <% end %>
