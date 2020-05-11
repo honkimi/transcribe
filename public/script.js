@@ -14,7 +14,7 @@ $(function() {
     return true;
   };
 
-  var arrowTypes = ["audio/mp3", "audio/wav"];
+  var arrowTypes = ["audio/mpeg", "audio/mp3", "audio/wav"];
   var validateFileType = function(type) {
     var ret = false;
     for (var i=0; i < arrowTypes.length; i++) {
@@ -49,7 +49,11 @@ $(function() {
     $this.hide();
 
     var filename = 'heroku-' + new Date().getTime();
-    $.ajax('/upload?name=' + filename + "&type=" + file.type).done(function(data) {
+    var type = file.type;
+    if (file.type === 'audio/mpeg') {
+      type = 'audo/mp3';
+    }
+    $.ajax('/upload?name=' + filename + "&type=" + type).done(function(data) {
       console.log(data);
       var formdata = new FormData();
       for (key in data.fields) { formdata.append(key, data.fields[key]); }
@@ -70,7 +74,7 @@ $(function() {
           data: {
             name: filename,
             uri: data.url + "/upload/" + filename,
-            format: file.type.split("/")[1],
+            format: type.split("/")[1],
             lang: $("#lang").val(),
             number: $("#number").val()
           },
